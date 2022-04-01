@@ -1,0 +1,268 @@
+/*** root ***/
+@font-face {
+  font-family: "Dancing Script";
+  src: url("../media/DancingScript-Bold.ttf");
+}
+
+html {
+  font-size: 1vw;
+}
+
+@media (max-width: 670px) {
+  html {
+    font-size: 3vw;
+  }
+
+  #heart {
+    font-size: 2vw;
+  }
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#sky {
+  position: absolute;
+  width: 100%;
+  height: 2000vh;
+  background-image: url("../media/sky 3.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  transform: translateY(0);
+}
+
+#sky.sky-scroll {
+  animation: sky-scroll 450s linear infinite;
+}
+
+/*** mountains ***/
+#mountains {
+  width: 78vw;
+  height: 53vh;
+  bottom: -35vh;
+}
+
+#mountains.sliding {
+  bottom: 25vh;
+}
+
+/*** front ***/
+img, #front {
+  position: absolute;
+}
+
+#front {
+  overflow: hidden;
+}
+
+#cutito {
+  position: absolute;
+  top: 42vh;
+  z-index: 2;
+}
+
+#gif-cutito {
+  height: 15vh;
+  top: -2vh;
+}
+
+#gif-walking {
+  height: 47vh;
+}
+
+#lines-wrap {
+  position: absolute;
+  bottom: 0;
+  height: 31vh;
+  width: 5vw;
+  overflow: hidden;
+}
+
+#lines {
+  position: absolute;
+  bottom: 0;
+  transform: scaleY(6.45) perspective(9px) rotateX(5deg);
+  transform-origin: bottom;
+  stroke-dasharray: 12;
+  stroke: #ffe200;
+  stroke-width: 10px;
+  z-index: 1;
+  animation: lines-dash 30s linear infinite;
+}
+
+/*** heart ***/
+#heart {
+  --heart-bg: #ff1919;
+  position: absolute;
+  justify-content: center;
+  top: 5vh;
+  width: 5em;
+  height: 5em;
+  border-radius: 6em;
+  background-color: var(--heart-bg);
+  box-shadow: 0 0 3em 0.5em var(--heart-bg);
+  transform: translateX(-50%);
+  animation: heart-x 3s, heart-glow 1s, heart-y 1.2s, heart-size .3s;
+  z-index: 3;
+}
+
+#heart img {
+  width: 150%;
+  z-index: 1;
+  animation: heart-rotate .5s;
+}
+
+#heart,
+#heart img {
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+#heart #stars-wrap {
+  position: absolute;
+  top: 0;
+  left: 1.2em;
+}
+
+#heart:not(.shown) .star {
+  animation: none !important;
+}
+
+.star {
+  position: absolute;
+  top: 0vh;
+  left: 0em;
+  color: var(--heart-bg);
+  font-size: 3em;
+  animation-duration: 10s !important;
+  animation-iteration-count: infinite !important;
+  z-index: 1;
+}
+
+/*** bday ***/
+#bday {
+  position: absolute;
+  bottom: -20vw;
+  color: #500808;
+  font-family: "Dancing Script";
+  font-size: 10vw;
+  text-shadow: -0.5vw 0.3vw 0.2vw #ff008e, 0.5vw -0.2vw 0.2vw #673ab7;
+  z-index: 3;
+  transition: bottom 4s ease-out;
+  animation: bday-shake 20s ease-in-out infinite;
+}
+
+#bday.flying {
+  bottom: 14vh;
+}
+
+#bday span {
+  z-index: 1;
+}
+
+#bday img {
+  width: 8vw;
+  bottom: -5vw;
+  right: -7vw;
+}
+
+#bday img:first-of-type {
+  transform: scaleX(-1);
+  left: -6vw;
+}
+
+/*** attributions ***/
+#attributions {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 1rem;
+  padding: .6rem;
+  padding-right: 3rem;
+  border-radius: 1rem;
+  background-color: #673ab7;
+  font-size: 1.4rem;
+  z-index: 4;
+  transition: clip-path 0.5s ease-in-out;
+  clip-path: circle(8% at 93.4% 86.5%);
+}
+
+#attributions.open {
+  clip-path: circle(75%);
+}
+
+#attributions img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 1.5rem;
+  margin: .6rem;
+  cursor: pointer;
+}
+
+#attributions a,
+#attributions a:visited {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-family: "Dancing Script";
+}
+
+/*** play ***/
+#play-wrap {
+  z-index: 1;
+  background-color: #000000ba;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#play-button {
+  width: 50vw;
+  max-width: 50vh;
+  cursor: pointer;
+}
+
+#speakers-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8vw;
+  margin: 2vw 2.5vw 0 0;
+  transform: scale(1);
+  animation: speakers-size .3s infinite alternate ease-in-out;
+}
+
+/*** common ***/
+.fader {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.fader.shown {
+  opacity: 1;
+}
+
+.slider {
+  bottom: -100vh;
+  transition: bottom 7s cubic-bezier(0, 0, 0.53, 1.12);
+}
+
+.slider.sliding {
+  bottom: 0;
+}
+
+.center-x {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bg {
+  width: 100%;
+  height: 100vh;
+  height: -webkit-fill-available;
+}

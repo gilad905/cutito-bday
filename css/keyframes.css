@@ -1,0 +1,86 @@
+@keyframes lines-dash {
+  to {
+    stroke-dashoffset: 23vh;
+  }
+}
+
+@keyframes heart-x {
+  from {
+    left: 10vw;
+  }
+
+  to {
+    left: 90vw;
+  }
+}
+
+@keyframes heart-y {
+  to {
+    top: 15vh;
+  }
+}
+
+@keyframes heart-size {
+  to {
+    width: 6em;
+    height: 6em;
+  }
+}
+
+@keyframes heart-rotate {
+  from {
+    transform: rotate(-20deg);
+  }
+
+  to {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes heart-glow {
+  to {
+    box-shadow: 0 0 3em 2em var(--heart-bg);
+  }
+}
+
+@keyframes speakers-size {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes star-y {
+  0%, 20.1%, 40.1%, 60.1%, 80.1% {
+    top: 0vh;
+  }
+
+  20%, 40%, 60%, 80%, 100% {
+    top: 90vh;
+  }
+}
+
+@keyframes star-rotate-1 {
+  0%, 20.1%, 40.1%, 60.1%, 80.1% {
+    transform: rotate(0deg);
+  }
+
+  20%, 40%, 60%, 80%, 100% {
+    transform: rotate(300deg);
+  }
+}
+
+@keyframes star-rotate-2 {
+  0%, 20.1%, 40.1%, 60.1%, 80.1% {
+    transform: rotate(0deg);
+  }
+
+  20%, 40%, 60%, 80%, 100% {
+    transform: rotate(-300deg);
+  }
+}
+
+@keyframes sky-scroll {
+  to {
+    transform: translateY(calc(100vh - 100%));
+  }
+}
